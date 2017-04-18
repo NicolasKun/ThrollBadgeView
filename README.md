@@ -2,9 +2,9 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 
-ThrollBadgeView��һ���Զ���ĽǱ�View,֧�����������ֺ�ͼƬ, ͬʱ�Դ����޸Ĺ���design���µ�Tablayout��ViewPager,ǰ�߿����Զ���ָʾ������,���߽����Ϊ����0ҳ
+ThrollBadgeView是一个自定义的角标View,支持依附于文字和图片, 同时自带了修改过的design包下的Tablayout与ViewPager,前者可以自定义指示器宽度,后者将其改为缓冲0页
 
-### ����
+### 引入
 
 Android Studio 
 
@@ -12,13 +12,13 @@ Android Studio
 
 Eclipse 
 
-> �����ڵ�  :P
+> 不存在的  :P
 
 
-### Ч��
+### 效果
 
 
-### ʹ�÷���
+### 使用方法
 
 
 ## END
