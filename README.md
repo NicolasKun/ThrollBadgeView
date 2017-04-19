@@ -39,7 +39,7 @@ labelView.setLabelViewVisiable(true);
 //设置角标内字符  设置为null 为只显示小红点不显示内字符
 labelView.setLabelNum("99+");
 //设置角标的背景颜色   default : 0xffef4836
-labelView.setLabelBg(0xffcccccc);
+labelView.setLabelBg(0xffef4836);
 //返回角标是否显示  default : false
 boolean labelViewVisiable = labelView.isLabelViewVisiable();
 //返回角标内的字符
@@ -53,10 +53,10 @@ String word = labelView.getWord();
 ```
 //设置依附的文字
 labelView.setWordShow("Sans");
-//设置依附的文字大小  default : 14
+//设置依附的文字大小  default : 14  (单位sp)
 labelView.setWordSize(14);
 //设置依附的文字颜色  default : 0xffbdbdbd
-labelView.setWordColor(0xffcccccc);
+labelView.setWordColor(0xffbdbdbd);
 ```
 
 - 依附图片
