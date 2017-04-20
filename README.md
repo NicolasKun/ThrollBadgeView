@@ -3,12 +3,13 @@
 
 
 ThrollBadgeView是一个自定义的角标View,支持依附于文字和图片, 同时自带了修改过的design包下的Tablayout与ViewPager,前者可以自定义指示器宽度,后者将其改为缓冲0页
+去除了android.design包的依赖
 
 ### 引入
 
 Android Studio 
 
-> compile 'im.unicolas:trollbadgeview:0.9'
+> compile 'im.unicolas:trollbadgeview:1.0'
 
 Eclipse 
 
