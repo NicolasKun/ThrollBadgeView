@@ -11,7 +11,7 @@ Android Studio
 
 > compile 'im.unicolas:trollbadgeview:1.0'
 
-Eclipse 
+ADT
 
 > 不存在的  :P
 
