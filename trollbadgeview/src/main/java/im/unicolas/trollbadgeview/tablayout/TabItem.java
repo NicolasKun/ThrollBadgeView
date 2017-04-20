@@ -6,6 +6,8 @@ import android.support.v7.widget.TintTypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 
+import im.unicolas.trollbadgeview.R;
+
 /**
  * Created by qq923 on 2017/4/10.
  */
@@ -23,10 +25,10 @@ public class TabItem extends View {
         super(context, attrs);
 
         final TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                android.support.design.R.styleable.TabItem);
-        mText = a.getText(android.support.design.R.styleable.TabItem_android_text);
-        mIcon = a.getDrawable(android.support.design.R.styleable.TabItem_android_icon);
-        mCustomLayout = a.getResourceId(android.support.design.R.styleable.TabItem_android_layout, 0);
+                R.styleable.TabItem);
+        mText = a.getText(R.styleable.TabItem_troll_text);
+        mIcon = a.getDrawable(R.styleable.TabItem_troll_icon);
+        mCustomLayout = a.getResourceId(R.styleable.TabItem_troll_layout, 0);
         a.recycle();
     }
 }

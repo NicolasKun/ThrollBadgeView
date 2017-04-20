@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "0.9"
+        versionCode 15
+        versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -31,7 +31,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
     testCompile 'junit:junit:4.12'
 }
 
@@ -39,7 +38,7 @@ publish {
     userOrg = 'unicolas'//bintray.com用户名
     groupId = 'im.unicolas'//jcenter上的路径
     artifactId = 'trollbadgeview'//项目名称
-    publishVersion = '0.9'//版本号
+    publishVersion = '1.0'//版本号
     desc = 'a \'Troll Fix\' badge view and custom tablayout'//描述，不重要
     website = 'https://github.com/NicolasKun/ThrollBadgeView'//网站，不重要
 }

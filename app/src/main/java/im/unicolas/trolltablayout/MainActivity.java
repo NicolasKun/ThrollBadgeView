@@ -1,6 +1,7 @@
 package im.unicolas.trolltablayout;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         mLabelView.setLabelMode(LabelView.LABEL_MODE_IMG);
         mLabelView.setBitmap4Icon(R.mipmap.test_cart);
         mLabelView.setLabelViewVisiable(true);
+
+
     }
 
     private void setUpTab() {
@@ -82,19 +85,21 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
         //setupWithViewPager 后设置如下代码
         for (int i = 0; i < titles.size(); i++) {
-            LabelView view = new LabelView(this);
-            view.setWordShow(titles.get(i));
-            view.setLabelViewVisiable(true);
-            if (i == 0)
-                view.setWordColor(0xff616161);
-            else if (i == 1)
-                view.setLabelNum("7");
-            else if (i == 2)
-                view.setLabelNum("12");
-            else if (i == 3)
-                view.setLabelNum("99+");
+            LabelView labelView = new LabelView(this);
+            labelView.setWordShow(titles.get(i));
 
-            tabLayout.getTabAt(i).setCustomView(view);
+            //设置角标是否显示
+            labelView.setLabelViewVisiable(true);
+            if (i == 0)
+                labelView.setWordColor(0xff616161);
+            else if (i == 1)
+                labelView.setLabelNum("7");
+            else if (i == 2)
+                labelView.setLabelNum("12");
+            else if (i == 3)
+                labelView.setLabelNum("99+");
+
+            tabLayout.getTabAt(i).setCustomView(labelView);
         }
 
         tabLayout.addOnTabSelectedListener(this);
