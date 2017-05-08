@@ -250,7 +250,7 @@ public class LabelView extends View {
 
     public void setBitmap4Icon(String imgPath) {
         if (!new File(imgPath).exists()) {
-            throw new IllegalArgumentException("we cannot found this file at " + imgPath);
+            throw new IllegalArgumentException("cannot found this file at " + imgPath);
         }
         Bitmap bitmap = BitmapFactory.decodeFile(imgPath);
         setBitmap4Icon(bitmap);

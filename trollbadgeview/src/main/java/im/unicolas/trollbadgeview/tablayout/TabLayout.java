@@ -1818,6 +1818,8 @@ public class TabLayout extends HorizontalScrollView {
         private ValueAnimatorCompat mIndicatorAnimator;
         private Context context;
 
+        private int mIndicatorWidth = -1;
+
         SlidingTabStrip(Context context) {
             super(context);
             this.context = context;
@@ -2044,9 +2046,13 @@ public class TabLayout extends HorizontalScrollView {
 
             // Thick colored underline below the current selection
             if (mIndicatorLeft >= 0 && mIndicatorRight > mIndicatorLeft) {
-                canvas.drawRect(mIndicatorLeft + dp2px(35), getHeight() - mSelectedIndicatorHeight,
-                        mIndicatorRight - dp2px(35), getHeight(), mSelectedIndicatorPaint);
+                canvas.drawRect(mIndicatorLeft + dp2px(mIndicatorWidth), getHeight() - mSelectedIndicatorHeight,
+                        mIndicatorRight - dp2px(mIndicatorWidth), getHeight(), mSelectedIndicatorPaint);
             }
+        }
+
+        public void setIndicatorWidth(int dpWidth) {
+            this.mIndicatorWidth = dpWidth;
         }
 
         public int dp2px(int dp) {

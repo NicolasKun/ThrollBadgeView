@@ -16,6 +16,7 @@ import java.util.List;
 import im.unicolas.trollbadgeview.FragmentPagerAdapter;
 import im.unicolas.trollbadgeview.LabelView;
 import im.unicolas.trollbadgeview.LimitPagerView;
+import im.unicolas.trollbadgeview.OldPagerView;
 import im.unicolas.trollbadgeview.tablayout.TabLayout;
 
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
