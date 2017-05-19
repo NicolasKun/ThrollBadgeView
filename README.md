@@ -9,7 +9,7 @@ ThrollBadgeView是一个自定义的角标View,支持依附于文字和图片, �
 
 Android Studio 
 
-> compile 'im.unicolas:trollbadgeview:1.0'
+> compile 'im.unicolas:trollbadgeview:1.1'
 
 ADT
 

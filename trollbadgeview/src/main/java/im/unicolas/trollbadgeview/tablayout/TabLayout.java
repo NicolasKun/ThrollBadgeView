@@ -2040,6 +2040,15 @@ public class TabLayout extends HorizontalScrollView {
             }
         }
 
+        public int dp2px(int dp) {
+            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+                    context.getResources().getDisplayMetrics());
+        }
+
+        public void setIndicatorPadding(int dp) {
+            this.mIndicatorWidth = dp;
+        }
+
         @Override
         public void draw(Canvas canvas) {
             super.draw(canvas);
@@ -2050,15 +2059,10 @@ public class TabLayout extends HorizontalScrollView {
                         mIndicatorRight - dp2px(mIndicatorWidth), getHeight(), mSelectedIndicatorPaint);
             }
         }
+    }
 
-        public void setIndicatorWidth(int dpWidth) {
-            this.mIndicatorWidth = dpWidth;
-        }
-
-        public int dp2px(int dp) {
-            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                    context.getResources().getDisplayMetrics());
-        }
+    public void setIndicatorWidth(int dpPadding) {
+        mTabStrip.setIndicatorPadding(dpPadding);
     }
 
     private static ColorStateList createColorStateList(int defaultColor, int selectedColor) {
