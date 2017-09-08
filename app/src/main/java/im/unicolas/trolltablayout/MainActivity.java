@@ -1,5 +1,6 @@
 package im.unicolas.trolltablayout;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -75,9 +76,11 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
         for (int i = 0; i < 4; i++) {
             fragments.add(TestFragment.instance(i));
+            //tabLayout.addTab(tabLayout.newTab().setText(titles.get(i)));
         }
 
         tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.color_grey_800));
+        tabLayout.setIndicatorWidth(40);
 
         MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
         pagerView.setAdapter(pagerAdapter);
@@ -90,15 +93,10 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
             //设置角标是否显示
             labelView.setLabelViewVisiable(true);
-            if (i == 0)
-                labelView.setWordColor(0xff616161);
-            else if (i == 1)
-                labelView.setLabelNum("7");
-            else if (i == 2)
-                labelView.setLabelNum("12");
-            else if (i == 3)
-                labelView.setLabelNum("99+");
-
+            if (i == 0) labelView.setWordColor(0xff616161);
+            else if (i == 1) labelView.setLabelNum("7");
+            else if (i == 2) labelView.setLabelNum("12");
+            else if (i == 3) labelView.setLabelNum("99+");
             tabLayout.getTabAt(i).setCustomView(labelView);
         }
 
@@ -107,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
+        //tab.getTabView().getTextView().setTypeface(Typeface.DEFAULT_BOLD);
         LabelView labelView = (LabelView) tab.getCustomView();
         labelView.setWordColor(0xff616161);   //设置文字在选中状态下的颜色
         int position = tab.getPosition();
@@ -128,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
+        //tab.getTabView().getTextView().setTypeface(Typeface.DEFAULT);
         LabelView labelView = (LabelView) tab.getCustomView();
         labelView.setWordColor(0xffbdbdbd);   //设置文字在未选中状态下的颜色
     }

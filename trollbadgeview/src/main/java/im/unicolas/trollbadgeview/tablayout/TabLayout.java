@@ -63,6 +63,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Locale;
 
 
 import im.unicolas.trollbadgeview.LimitPagerView;
@@ -1467,6 +1468,10 @@ public class TabLayout extends HorizontalScrollView {
             return mContentDesc;
         }
 
+        public TabView getTabView() {
+            return mView;
+        }
+
         void updateView() {
             if (mView != null) {
                 mView.update();
@@ -1485,7 +1490,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    class TabView extends LinearLayout implements OnLongClickListener {
+    public class TabView extends LinearLayout implements OnLongClickListener {
         private Tab mTab;
         private TextView mTextView;
         private ImageView mIconView;
@@ -1506,6 +1511,10 @@ public class TabLayout extends HorizontalScrollView {
             setGravity(Gravity.CENTER);
             setOrientation(VERTICAL);
             setClickable(true);
+        }
+
+        public TextView getTextView() {
+            return mTextView;
         }
 
         @Override
@@ -2045,8 +2054,8 @@ public class TabLayout extends HorizontalScrollView {
                     context.getResources().getDisplayMetrics());
         }
 
-        public void setIndicatorPadding(int dp) {
-            this.mIndicatorWidth = dp;
+        public void setIndicatorPadding(int width) {
+            this.mIndicatorWidth = dp2px(width);
         }
 
         @Override
@@ -2055,14 +2064,19 @@ public class TabLayout extends HorizontalScrollView {
 
             // Thick colored underline below the current selection
             if (mIndicatorLeft >= 0 && mIndicatorRight > mIndicatorLeft) {
-                canvas.drawRect(mIndicatorLeft + dp2px(mIndicatorWidth), getHeight() - mSelectedIndicatorHeight,
-                        mIndicatorRight - dp2px(mIndicatorWidth), getHeight(), mSelectedIndicatorPaint);
+                int oldWidth = mIndicatorRight - mIndicatorLeft;
+                if (mIndicatorWidth > oldWidth)
+                    throw new IllegalStateException(String.format(Locale.getDefault(),
+                            "The mIndicatorWidth[%d] more than the oldWidth[%d]", mIndicatorWidth, oldWidth));
+                int offset = (oldWidth - mIndicatorWidth) / 2;
+                canvas.drawRect(mIndicatorLeft + offset, getHeight() - mSelectedIndicatorHeight,
+                        mIndicatorRight - offset, getHeight(), mSelectedIndicatorPaint);
             }
         }
     }
 
-    public void setIndicatorWidth(int dpPadding) {
-        mTabStrip.setIndicatorPadding(dpPadding);
+    public void setIndicatorWidth(int width) {
+        mTabStrip.setIndicatorPadding(width);
     }
 
     private static ColorStateList createColorStateList(int defaultColor, int selectedColor) {
