@@ -2065,9 +2065,9 @@ public class TabLayout extends HorizontalScrollView {
             // Thick colored underline below the current selection
             if (mIndicatorLeft >= 0 && mIndicatorRight > mIndicatorLeft) {
                 int oldWidth = mIndicatorRight - mIndicatorLeft;
-                if (mIndicatorWidth > oldWidth)
-                    throw new IllegalStateException(String.format(Locale.getDefault(),
-                            "The mIndicatorWidth[%d] more than the oldWidth[%d]", mIndicatorWidth, oldWidth));
+                //if (mIndicatorWidth > oldWidth)
+                //    throw new IllegalStateException(String.format(Locale.getDefault(),
+                //            "The mIndicatorWidth[%d] more than the oldWidth[%d]", mIndicatorWidth, oldWidth));
                 int offset = (oldWidth - mIndicatorWidth) / 2;
                 canvas.drawRect(mIndicatorLeft + offset, getHeight() - mSelectedIndicatorHeight,
                         mIndicatorRight - offset, getHeight(), mSelectedIndicatorPaint);
